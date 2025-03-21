@@ -35,6 +35,25 @@ class _HomeState extends State<Home> {
             //print("item ${ _itens[indice]["titulo"] }");
 
             return ListTile(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text(_itens[indice]["titulo"]),
+                      content: Text(_itens[indice]["descricao"]),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text("Fechar"),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
               title: Text(_itens[indice]["titulo"]),
               subtitle: Text(_itens[indice]["descricao"]),
             );
